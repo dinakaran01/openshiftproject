@@ -1,0 +1,47 @@
+description: An example Job YAML sample
+
+ targetResource:
+
+   apiVersion: batch/v1
+
+   kind: Job                ---> Kube resource assigned this sample
+
+ title: Example Job         ---> Display text in the sidebar
+
+  Snippet: false            ---> YAML will be injected and not replaced if “true”
+
+ yaml:                  ---> Sample YAML content
+
+   apiVersion: batch/v1
+
+   kind: Job
+
+   metadata:
+
+     name: countdown
+
+   spec:
+
+     template:
+
+       metadata:
+
+         name: countdown
+
+       spec:
+
+         containers:
+
+         - name: counter
+
+           image: centos:7
+
+           command:
+
+           - "bin/bash"
+
+           - "-c"
+
+           - "for i in 9 8 7 6 5 4 3 2 1 ; do echo $i ; done"
+
+         restartPolicy: Never
